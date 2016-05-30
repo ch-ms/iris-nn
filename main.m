@@ -32,7 +32,7 @@ Theta2 = randn(num_classes, num_features + 1);
 disp("Predictions.");
 
 for i = 1:length(test_X)
-  prediction = predict(test_X(i, :), Theta1, Theta2);
+  [prediction pm] = predict(test_X(i, :), Theta1, Theta2);
   actual = test_y(i);
   fprintf("Prediction/actual %i = %i.\n", prediction, actual);
 endfor
