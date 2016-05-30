@@ -20,9 +20,11 @@ classes = unique(all_y);
 % Learn
 num_features = size(all_X)(2);
 num_classes = length(classes);
+l1_size = l2_size = num_features;
+l3_size = num_classes;
 
-Theta1 = randn(num_features, num_features + 1);
-Theta2 = randn(num_classes, num_features + 1);
+Theta1 = randInitWeights(l1_size, l2_size);
+Theta2 = randInitWeights(l2_size, l3_size);
 
 
 % Validate
