@@ -26,6 +26,8 @@ l3_size = num_classes;
 Theta1 = randInitWeights(l1_size, l2_size);
 Theta2 = randInitWeights(l2_size, l3_size);
 
+init_params = [Theta1(:); Theta2(:)];
+
 
 % Validate
 
