@@ -28,7 +28,7 @@ Theta2 = randInitWeights(l2_size, l3_size);
 
 init_params = [Theta1(:); Theta2(:)];
 
-opts = optimset('MaxIter', 50);
+opts = optimset('MaxIter', 200);
 
 costFunction = @(p) costFunction(p, train_X, train_y, ...
   num_classes, l1_size, l2_size, l3_size);

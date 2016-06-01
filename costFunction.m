@@ -14,7 +14,7 @@ function [J grad] = costFunction(params, X, y, num_classes, l1_size, l2_size, l3
   % Cost function
   [v a1 a2 a3 z2 z3] = predict(X, Theta1, Theta2);
 
-  J = ((-Y) .* log(a3)) - ((1 - Y) .* log(a3));
+  J = ((-Y) .* log(a3)) - ((1 - Y) .* log(1 - a3));
   J = sum(sum(J));
   J = 1/m * J;
 
