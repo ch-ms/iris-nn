@@ -39,10 +39,19 @@ Theta1 = reshape(thetas(1:(l2_size * (l1_size + 1))), l2_size, (l1_size + 1));
 Theta2 = reshape(thetas((l2_size * (l1_size + 1) + 1):end), l3_size, (l2_size + 1));
 
 fprintf("Learned!.\n");
-fprintf('Program paused. Press any key to continue.\n');
+fprintf('Program paused. Press any key to continue.\n\n');
 pause;
 
 % Validate
+disp("Validation.");
+
+predictions = predict(cv_X, Theta1, Theta2);
+true_predictions = find(predictions == cv_y);
+accuracy = length(true_predictions)/length(cv_y);
+fprintf("Accuracy on CV set is %i \n\n", accuracy);
+
+fprintf('Program paused. Press any key to continue.\n\n');
+pause;
 
 
 % Predict
