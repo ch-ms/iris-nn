@@ -28,6 +28,19 @@ Theta2 = randInitWeights(l2_size, l3_size);
 
 init_params = [Theta1(:); Theta2(:)];
 
+opts = optimset('MaxIter', 50);
+
+costFunction = @(p) costFunction(p, train_X, train_y, ...
+  num_classes, l1_size, l2_size, l3_size);
+
+[thetas, cost] = fmincg(costFunction, init_params, opts);
+
+Theta1 = reshape(thetas(1:(l2_size * (l1_size + 1))), l2_size, (l1_size + 1));
+Theta2 = reshape(thetas((l2_size * (l1_size + 1) + 1):end), l3_size, (l2_size + 1));
+
+fprintf("Learned!.\n");
+fprintf('Program paused. Press any key to continue.\n');
+pause;
 
 % Validate
 
